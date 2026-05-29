@@ -26,14 +26,15 @@
   .filters::-webkit-scrollbar{display:none}
   .chip{padding:4px 12px;border-radius:20px;font-size:12px;border:1px solid #3a2a10;background:#1a1208;color:#8a7a5a;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all 0.15s}
   .chip.active{background:#3d1a00;border-color:#c8860a;color:#F0C060}
-  .section-label{font-size:10px;letter-spacing:0.1em;color:#5a4a30;text-transform:uppercase;padding:0.75rem 0 0.25rem}
-  .song{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #1e1608}
+  .song{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #1e1608}
   .song:last-child{border-bottom:none}
-  .num{width:22px;text-align:right;font-size:11px;color:#5a4a30;flex-shrink:0}
+  .num{width:22px;text-align:right;font-size:11px;color:#5a4a30;flex-shrink:0;padding-top:2px}
   .info{flex:1;min-width:0}
   .name{font-size:13px;font-weight:500;color:#f0e6c8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .singer{font-size:11px;color:#8a7a5a}
-  .tag{font-size:10px;padding:2px 7px;border-radius:10px;flex-shrink:0}
+  .original{font-size:11px;color:#c8860a;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .singer{font-size:11px;color:#5a4a30;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .singer span{color:#8a7a5a}
+  .tag{font-size:10px;padding:2px 7px;border-radius:10px;flex-shrink:0;margin-top:2px}
   .t-ranchera{background:#2a0a00;color:#E07040;border:1px solid #6B2810}
   .t-bolero{background:#1a0a2a;color:#A080E0;border:1px solid #5a3a8a}
   .t-son{background:#0a1a0a;color:#60A060;border:1px solid #2a5a2a}
@@ -41,11 +42,16 @@
   .t-vals{background:#00101a;color:#4090B0;border:1px solid #104060}
   .t-arpa{background:#1a0a1a;color:#B060B0;border:1px solid #5a205a}
   .t-pop{background:#001a10;color:#40B080;border:1px solid #105040}
+  .t-arreglo{background:#1a1000;color:#D4A017;border:1px solid #8B6914}
   .t-otro{background:#101010;color:#808080;border:1px solid #303030}
   .empty{text-align:center;padding:2rem;color:#5a4a30;font-size:13px}
   .footer{text-align:center;padding:1.25rem 1rem 2rem;font-size:11px;color:#5a4a30;line-height:1.6;border-top:1px solid #1e1608;margin-top:0.5rem}
   .footer a{color:#8B6914;text-decoration:none}
-  .count-badge{display:inline-block;background:#1a0e00;border:1px solid #3a2a10;color:#8a7a5a;font-size:10px;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}
+  .legend{display:flex;gap:12px;font-size:10px;color:#5a4a30;margin-bottom:0.75rem;flex-wrap:wrap}
+  .legend span{display:flex;align-items:center;gap:4px}
+  .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+  .dot-gold{background:#c8860a}
+  .dot-dim{background:#5a4a30}
 </style>
 </head>
 <body>
@@ -55,7 +61,7 @@
   <h1>Mariachi Pilares de Jalisco</h1>
   <p>Repertorio oficial · Jalisco, México</p>
   <a class="ig-btn" href="https://instagram.com/mariachipilaresdejalisco" target="_blank">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
     @mariachipilaresdejalisco
   </a>
 </div>
@@ -63,9 +69,13 @@
 <div class="content">
   <div class="search-wrap">
     <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    <input type="text" id="q" placeholder="Buscar canción o cantante..." oninput="render()">
+    <input type="text" id="q" placeholder="Buscar canción, artista o intérprete..." oninput="render()">
   </div>
   <div class="filters" id="chips"></div>
+  <div class="legend">
+    <span><div class="dot dot-gold"></div>Artista original</span>
+    <span><div class="dot dot-dim"></div>Interpreta en el mariachi</span>
+  </div>
   <div id="list"></div>
 </div>
 
@@ -75,158 +85,164 @@
 </div>
 
 <script>
+// n=nombre, o=artista original, s=cantante en el mariachi, g=genero
 const songs=[
   // === RANCHERAS ===
-  {n:"Paloma Negra",s:"Carolina",g:"ranchera"},
-  {n:"Probablemente Ya",s:"Carolina",g:"ranchera"},
-  {n:"Popurrí Juan Gabriel",s:"Carolina, Sofi",g:"ranchera"},
-  {n:"Prieta Linda",s:"Gabriel",g:"ranchera"},
-  {n:"Volver Volver",s:"Ángel",g:"ranchera"},
-  {n:"El Aventurero",s:"Oswaldo",g:"ranchera"},
-  {n:"No Me Sé Rajar",s:"Oswaldo",g:"ranchera"},
-  {n:"A los 4 Vientos",s:"Oswaldo",g:"ranchera"},
-  {n:"Quisiera Saber",s:"Oswaldo",g:"ranchera"},
-  {n:"El Árbol",s:"Oswaldo",g:"ranchera"},
-  {n:"Una Cruz de Madera",s:"Carolina, Oswaldo",g:"ranchera"},
-  {n:"El Columpio",s:"Oswaldo",g:"ranchera"},
-  {n:"Treinta Cartas",s:"Oswaldo",g:"ranchera"},
-  {n:"El Indio Enamorado",s:"Oswaldo",g:"ranchera"},
-  {n:"Dos Gotas de Agua",s:"Oswaldo",g:"ranchera"},
-  {n:"De un Rancho a Otro",s:"Oswaldo",g:"ranchera"},
-  {n:"En un Camión Pasajero",s:"Oswaldo",g:"ranchera"},
-  {n:"Si Ya No Te Vuelvo a Ver",s:"Oswaldo",g:"ranchera"},
-  {n:"El Saunce y la Palma",s:"Brenda",g:"ranchera"},
-  {n:"Cuando Abras los Ojos",s:"Brenda",g:"ranchera"},
-  {n:"Que Manera de Perder",s:"Brenda",g:"ranchera"},
-  {n:"No Llega el Olvido",s:"Brenda",g:"ranchera"},
-  {n:"Acá Entre Nos",s:"Brenda",g:"ranchera"},
-  {n:"Copitas de Mezcal",s:"Brenda",g:"ranchera"},
-  {n:"Me Gustas Mucho",s:"Brenda",g:"ranchera"},
-  {n:"Las Cuentas Claras",s:"Brenda",g:"ranchera"},
-  {n:"Que Me Vean Llorando",s:"Brenda",g:"ranchera"},
-  {n:"Un Día a la Vez",s:"Brenda",g:"ranchera"},
-  {n:"Hija de Nadie",s:"Brenda",g:"ranchera"},
-  {n:"La Tequilera",s:"Brenda",g:"ranchera"},
-  {n:"Calles de Tierra",s:"Carolina, Oswaldo",g:"ranchera"},
-  {n:"Amor de los Dos",s:"Carolina, Amy, Ángel",g:"ranchera"},
-  {n:"Silencio de la Noche",s:"Ángel, Carolina",g:"ranchera"},
-  {n:"Viviendo a lo Grande",s:"Ángel",g:"ranchera"},
-  {n:"Botas de Charro",s:"Ángel",g:"ranchera"},
-  {n:"El Cobarde",s:"Ángel",g:"ranchera"},
-  {n:"Caminos de Michoacán",s:"Ángel",g:"ranchera"},
-  {n:"Corral de Piedra",s:"Guillermo",g:"ranchera"},
-  {n:"Muchacho Alegre",s:"Guillermo",g:"ranchera"},
-  {n:"El Rey",s:"Oswaldo",g:"ranchera"},
-  {n:"Se Va Muriendo mi Alma",s:"Oswaldo",g:"ranchera"},
-  {n:"Somos los que Somos",s:"Carolina, Gabriel",g:"ranchera"},
-  {n:"Por un Amor",s:"Fernando",g:"ranchera"},
-  {n:"Flor Triste",s:"Oswaldo",g:"ranchera"},
-  {n:"A mi Playa",s:"Rodrigo, Carolina",g:"ranchera"},
-  {n:"Sentimental",s:"Rodrigo, Carolina",g:"ranchera"},
-  {n:"Suspiros",s:"Carolina, Rodrigo",g:"ranchera"},
-  {n:"Suspiros al Viento",s:"Oswaldo",g:"ranchera"},
-  {n:"Caballo Bayo",s:"Guillermo",g:"ranchera"},
-  {n:"La Pava",s:"Oswaldo",g:"ranchera"},
-  {n:"La Llorona",s:"Carolina",g:"ranchera"},
-  {n:"La Chancla",s:"Carolina",g:"ranchera"},
-  {n:"Alma Enamorada",s:"Carolina",g:"ranchera"},
-  {n:"Qué Dirán los de tu Casa",s:"Carolina",g:"ranchera"},
-  {n:"Tragos de Amargo Licor",s:"Oswaldo, John",g:"ranchera"},
-  {n:"Un Rinconcito en el Cielo",s:"John",g:"ranchera"},
-  {n:"Que Chulos Ojos",s:"Carolina, Oswaldo",g:"ranchera"},
-  {n:"La Mochila Azul",s:"Instrumental",g:"ranchera"},
-  {n:"Hermoso Cariño",s:"John",g:"ranchera"},
-  {n:"Mi Ranchito",s:"Ángel, Oswaldo",g:"ranchera"},
-  {n:"Mátalas",s:"Ángel",g:"ranchera"},
-  {n:"Estos Celos",s:"Ángel",g:"ranchera"},
-  {n:"Cielito Lindo",s:"Ángel",g:"ranchera"},
-  {n:"Las Edades",s:"Carolina, Amy",g:"ranchera"},
-  {n:"Los Laureles",s:"Sofi",g:"ranchera"},
-  {n:"No Volveré",s:"Oswaldo, Fernando",g:"ranchera"},
-  {n:"Se Me Olvidó Otra Vez",s:"Carolina",g:"ranchera"},
-  {n:"Tristes Recuerdos",s:"Carolina",g:"ranchera"},
-  {n:"Recuerdos Tristes",s:"Gabriel, Carolina",g:"ranchera"},
-  {n:"El Herradero",s:"Carolina",g:"ranchera"},
-  {n:"Mi Primer Amor",s:"Carolina",g:"ranchera"},
-  {n:"La Venia Bendita",s:"Oswaldo",g:"ranchera"},
-  {n:"Que Bonita es la Vida",s:"Ángel",g:"ranchera"},
-  {n:"Guadalajara",s:"Carolina, Gabriel, Ángel",g:"ranchera"},
-  {n:"4 Velas",s:"Ángel",g:"ranchera"},
-  {n:"4 Milpas",s:"Oswaldo",g:"ranchera"},
-  {n:"Perro Negro",s:"Guillermo",g:"ranchera"},
-  {n:"Cuánto Me Gusta Este Rancho",s:"Oswaldo, Fernando",g:"ranchera"},
-  {n:"La Basurita",s:"Amy, Carolina",g:"ranchera"},
-  {n:"Ojitos Verdes",s:"Oswaldo",g:"ranchera"},
-  {n:"Las Margaritas",s:"Instrumental",g:"ranchera"},
+  {n:"Paloma Negra",o:"Tomás Méndez",s:"Carolina",g:"ranchera"},
+  {n:"Probablemente Ya",o:"Carin León",s:"Carolina",g:"ranchera"},
+  {n:"Popurrí Juan Gabriel",o:"Juan Gabriel",s:"Carolina, Sofi",g:"ranchera"},
+  {n:"Prieta Linda",o:"José Alfredo Jiménez",s:"Gabriel",g:"ranchera"},
+  {n:"Volver Volver",o:"Fernando Z. Maldonado",s:"Ángel",g:"ranchera"},
+  {n:"El Aventurero",o:"José Alfredo Jiménez",s:"Oswaldo",g:"ranchera"},
+  {n:"No Me Sé Rajar",o:"Cornelio Reyna",s:"Oswaldo",g:"ranchera"},
+  {n:"A los 4 Vientos",o:"José Alfredo Jiménez",s:"Oswaldo",g:"ranchera"},
+  {n:"Quisiera Saber",o:"Tradicional",s:"Oswaldo",g:"ranchera"},
+  {n:"El Árbol",o:"Tradicional",s:"Oswaldo",g:"ranchera"},
+  {n:"Una Cruz de Madera",o:"Tradicional",s:"Carolina, Oswaldo",g:"ranchera"},
+  {n:"El Columpio",o:"Tradicional",s:"Oswaldo",g:"ranchera"},
+  {n:"Treinta Cartas",o:"Amalia Mendoza",s:"Oswaldo",g:"ranchera"},
+  {n:"El Indio Enamorado",o:"Tradicional",s:"Oswaldo",g:"ranchera"},
+  {n:"Dos Gotas de Agua",o:"Tradicional",s:"Oswaldo",g:"ranchera"},
+  {n:"De un Rancho a Otro",o:"Tradicional",s:"Oswaldo",g:"ranchera"},
+  {n:"En un Camión Pasajero",o:"Tradicional",s:"Oswaldo",g:"ranchera"},
+  {n:"Si Ya No Te Vuelvo a Ver",o:"Tradicional",s:"Oswaldo",g:"ranchera"},
+  {n:"El Saunce y la Palma",o:"Tradicional",s:"Brenda",g:"ranchera"},
+  {n:"Cuando Abras los Ojos",o:"Aída Cuevas",s:"Brenda",g:"ranchera"},
+  {n:"Que Manera de Perder",o:"Rocío Dúrcal",s:"Brenda",g:"ranchera"},
+  {n:"No Llega el Olvido",o:"Lupita D'Alessio",s:"Brenda",g:"ranchera"},
+  {n:"Acá Entre Nos",o:"José Alfredo Jiménez",s:"Brenda",g:"ranchera"},
+  {n:"Copitas de Mezcal",o:"Tradicional",s:"Brenda",g:"ranchera"},
+  {n:"Me Gustas Mucho",o:"Rocío Dúrcal",s:"Brenda",g:"ranchera"},
+  {n:"Las Cuentas Claras",o:"Tradicional",s:"Brenda",g:"ranchera"},
+  {n:"Que Me Vean Llorando",o:"Tradicional",s:"Brenda",g:"ranchera"},
+  {n:"Un Día a la Vez",o:"Tradicional",s:"Brenda",g:"ranchera"},
+  {n:"Hija de Nadie",o:"Tradicional",s:"Brenda",g:"ranchera"},
+  {n:"La Tequilera",o:"Ángela Aguilar",s:"Brenda",g:"ranchera"},
+  {n:"Calles de Tierra",o:"Tradicional",s:"Carolina, Oswaldo",g:"ranchera"},
+  {n:"Amor de los Dos",o:"Tradicional",s:"Carolina, Amy, Ángel",g:"ranchera"},
+  {n:"Silencio de la Noche",o:"Tradicional",s:"Ángel, Carolina",g:"ranchera"},
+  {n:"Viviendo a lo Grande",o:"Tradicional",s:"Ángel",g:"ranchera"},
+  {n:"Botas de Charro",o:"Tradicional",s:"Ángel",g:"ranchera"},
+  {n:"El Cobarde",o:"José Alfredo Jiménez",s:"Ángel",g:"ranchera"},
+  {n:"Caminos de Michoacán",o:"Tradicional",s:"Ángel",g:"ranchera"},
+  {n:"Corral de Piedra",o:"Tradicional",s:"Guillermo",g:"ranchera"},
+  {n:"Muchacho Alegre",o:"Tradicional",s:"Guillermo",g:"ranchera"},
+  {n:"El Rey",o:"José Alfredo Jiménez",s:"Oswaldo",g:"ranchera"},
+  {n:"Se Va Muriendo mi Alma",o:"Lupita D'Alessio",s:"Oswaldo",g:"ranchera"},
+  {n:"Somos los que Somos",o:"Tradicional",s:"Carolina, Gabriel",g:"ranchera"},
+  {n:"Por un Amor",o:"José Alfredo Jiménez",s:"Fernando",g:"ranchera"},
+  {n:"Flor Triste",o:"Tradicional",s:"Oswaldo",g:"ranchera"},
+  {n:"A mi Playa",o:"Tradicional",s:"Rodrigo, Carolina",g:"ranchera"},
+  {n:"Sentimental",o:"Tradicional",s:"Rodrigo, Carolina",g:"ranchera"},
+  {n:"Suspiros",o:"Tradicional",s:"Carolina, Rodrigo",g:"ranchera"},
+  {n:"Suspiros al Viento",o:"Tradicional",s:"Oswaldo",g:"ranchera"},
+  {n:"Caballo Bayo",o:"Tradicional",s:"Guillermo",g:"ranchera"},
+  {n:"La Pava",o:"Tradicional",s:"Oswaldo",g:"ranchera"},
+  {n:"La Llorona",o:"Tradicional oaxaqueña",s:"Carolina",g:"ranchera"},
+  {n:"La Chancla",o:"Tata Nacho / Rubén Fuentes",s:"Carolina",g:"ranchera"},
+  {n:"Alma Enamorada",o:"Tradicional",s:"Carolina",g:"ranchera"},
+  {n:"Qué Dirán los de tu Casa",o:"Tradicional",s:"Carolina",g:"ranchera"},
+  {n:"Tragos de Amargo Licor",o:"Chelo",s:"Oswaldo, John",g:"ranchera"},
+  {n:"Un Rinconcito en el Cielo",o:"José Alfredo Jiménez",s:"John",g:"ranchera"},
+  {n:"Que Chulos Ojos",o:"Tradicional",s:"Carolina, Oswaldo",g:"ranchera"},
+  {n:"La Mochila Azul",o:"Chabuca Granda",s:"Instrumental",g:"ranchera"},
+  {n:"Hermoso Cariño",o:"Rocío Dúrcal",s:"John",g:"ranchera"},
+  {n:"Mi Ranchito",o:"Tradicional",s:"Ángel, Oswaldo",g:"ranchera"},
+  {n:"Mátalas",o:"Pepe Aguilar",s:"Ángel",g:"ranchera"},
+  {n:"Estos Celos",o:"Vicente Fernández",s:"Ángel",g:"ranchera"},
+  {n:"Cielito Lindo",o:"Quirino Mendoza",s:"Ángel",g:"ranchera"},
+  {n:"Las Edades",o:"Tradicional",s:"Carolina, Amy",g:"ranchera"},
+  {n:"Los Laureles",o:"Tradicional",s:"Sofi",g:"ranchera"},
+  {n:"No Volveré",o:"Rubén Méndez del Castillo",s:"Oswaldo, Fernando",g:"ranchera"},
+  {n:"Se Me Olvidó Otra Vez",o:"Juan Gabriel",s:"Carolina",g:"ranchera"},
+  {n:"Tristes Recuerdos",o:"Felipe Valdés Leal",s:"Carolina",g:"ranchera"},
+  {n:"Recuerdos Tristes",o:"Felipe Valdés Leal",s:"Gabriel, Carolina",g:"ranchera"},
+  {n:"El Herradero",o:"Tradicional",s:"Carolina",g:"ranchera"},
+  {n:"Mi Primer Amor",o:"Tradicional",s:"Carolina",g:"ranchera"},
+  {n:"La Venia Bendita",o:"Marco Antonio Solís",s:"Oswaldo",g:"ranchera"},
+  {n:"Que Bonita es la Vida",o:"Darío Gómez",s:"Ángel",g:"ranchera"},
+  {n:"Guadalajara",o:"Pepe Guízar",s:"Carolina, Gabriel, Ángel",g:"ranchera"},
+  {n:"4 Velas",o:"Los Panchos",s:"Ángel",g:"ranchera"},
+  {n:"4 Milpas",o:"Belisario de Jesús García",s:"Oswaldo",g:"ranchera"},
+  {n:"Perro Negro",o:"Tradicional",s:"Guillermo",g:"ranchera"},
+  {n:"Cuánto Me Gusta Este Rancho",o:"Tradicional",s:"Oswaldo, Fernando",g:"ranchera"},
+  {n:"La Basurita",o:"Tradicional",s:"Amy, Carolina",g:"ranchera"},
+  {n:"Ojitos Verdes",o:"Tradicional",s:"Oswaldo",g:"ranchera"},
+  {n:"Las Margaritas",o:"Tradicional",s:"Instrumental",g:"ranchera"},
   // === BOLEROS ===
-  {n:"No Me Queda Más",s:"Carolina",g:"bolero"},
-  {n:"Ya lo Sé que Tú te Vas",s:"Carolina",g:"bolero"},
-  {n:"No Discutamos",s:"Gabriel",g:"bolero"},
-  {n:"Así Fue",s:"Gabriel",g:"bolero"},
-  {n:"Por Qué Me Haces Llorar",s:"Oswaldo",g:"bolero"},
-  {n:"Una Página Más",s:"Oswaldo",g:"bolero"},
-  {n:"Libro Abierto",s:"Oswaldo",g:"bolero"},
-  {n:"Parece que Fue Ayer",s:"Oswaldo",g:"bolero"},
-  {n:"Nube de Mar",s:"Oswaldo",g:"bolero"},
-  {n:"Hechizo",s:"Brenda",g:"bolero"},
-  {n:"Amor Eterno",s:"Brenda",g:"bolero"},
-  {n:"Gracias Señor",s:"Carolina",g:"bolero"},
-  {n:"Será tu Decisión",s:"Carolina",g:"bolero"},
-  {n:"Estoy Enamorada",s:"Carolina",g:"bolero"},
-  {n:"Tatuajes",s:"Oswaldo, John",g:"bolero"},
-  {n:"Señora Señora",s:"Ángel",g:"bolero"},
-  {n:"Cruz de Olvido",s:"Ángel, Guillermo",g:"bolero"},
+  {n:"No Me Queda Más",o:"Selena",s:"Carolina",g:"bolero"},
+  {n:"Ya lo Sé que Tú te Vas",o:"José José",s:"Carolina",g:"bolero"},
+  {n:"No Discutamos",o:"Pedro Infante",s:"Gabriel",g:"bolero"},
+  {n:"Así Fue",o:"Juan Gabriel",s:"Gabriel",g:"bolero"},
+  {n:"Por Qué Me Haces Llorar",o:"Tradicional",s:"Oswaldo",g:"bolero"},
+  {n:"Una Página Más",o:"Vikki Carr",s:"Oswaldo",g:"bolero"},
+  {n:"Libro Abierto",o:"Tradicional",s:"Oswaldo",g:"bolero"},
+  {n:"Parece que Fue Ayer",o:"Tradicional",s:"Oswaldo",g:"bolero"},
+  {n:"Nube de Mar",o:"Los Panchos",s:"Oswaldo",g:"bolero"},
+  {n:"Hechizo",o:"Tradicional",s:"Brenda",g:"bolero"},
+  {n:"Amor Eterno",o:"Juan Gabriel",s:"Brenda",g:"bolero"},
+  {n:"Gracias Señor",o:"Tradicional",s:"Carolina",g:"bolero"},
+  {n:"Será tu Decisión",o:"Tradicional",s:"Carolina",g:"bolero"},
+  {n:"Estoy Enamorada",o:"Tradicional",s:"Carolina",g:"bolero"},
+  {n:"Tatuajes",o:"José José",s:"Oswaldo, John",g:"bolero"},
+  {n:"Señora Señora",o:"Miguel Gallardo",s:"Ángel",g:"bolero"},
+  {n:"Cruz de Olvido",o:"Cuco Sánchez",s:"Ángel, Guillermo",g:"bolero"},
   // === SONES ===
-  {n:"Aires del Mayab",s:"Carolina",g:"son"},
-  {n:"El Relámpago",s:"Gabriel",g:"son"},
-  {n:"Llano Grande",s:"Gabriel",g:"son"},
-  {n:"La Bamba",s:"Gabriel",g:"son"},
-  {n:"El Cascabel",s:"Oswaldo",g:"son"},
-  {n:"El Son de la Negra",s:"Instrumental",g:"son"},
-  {n:"El Gavilancillo",s:"Oswaldo",g:"son"},
-  {n:"El Jabalí",s:"Oswaldo, Rodrigo",g:"son"},
-  {n:"Las Abajeñas",s:"Oswaldo, Rodrigo",g:"son"},
-  {n:"Plan de la Villa",s:"Oswaldo, Rodrigo",g:"son"},
-  {n:"La Loba",s:"Gabriel, Oswaldo",g:"son"},
-  {n:"La Vaquilla",s:"Guillermo, Rodrigo, Oswaldo",g:"son"},
-  {n:"Toro Viejo",s:"Oswaldo",g:"son"},
-  {n:"Veracruz",s:"Ángel, Guillermo, Gabriel",g:"son"},
-  {n:"El Carretero",s:"Ángel, Oswaldo",g:"son"},
-  {n:"La Culebra",s:"Instrumental",g:"son"},
-  {n:"La Charreada",s:"Carolina",g:"son"},
-  {n:"Rezaré",s:"Brenda",g:"son"},
+  {n:"Aires del Mayab",o:"Guty Cárdenas",s:"Carolina",g:"son"},
+  {n:"El Relámpago",o:"Tradicional jalisciense",s:"Gabriel",g:"son"},
+  {n:"Llano Grande",o:"Tradicional",s:"Gabriel",g:"son"},
+  {n:"La Bamba",o:"Ritchie Valens / Tradicional veracruzano",s:"Gabriel",g:"son"},
+  {n:"El Cascabel",o:"Lorenzo Barcelata",s:"Oswaldo",g:"son"},
+  {n:"El Son de la Negra",o:"Rubén Fuentes / Silvestre Vargas",s:"Instrumental",g:"son"},
+  {n:"El Gavilancillo",o:"Tradicional",s:"Oswaldo",g:"son"},
+  {n:"El Jabalí",o:"Tradicional jalisciense",s:"Oswaldo, Rodrigo",g:"son"},
+  {n:"Las Abajeñas",o:"Tradicional jalisciense",s:"Oswaldo, Rodrigo",g:"son"},
+  {n:"Plan de la Villa",o:"Tradicional",s:"Oswaldo, Rodrigo",g:"son"},
+  {n:"La Loba",o:"Tradicional",s:"Gabriel, Oswaldo",g:"son"},
+  {n:"La Vaquilla",o:"Tradicional jalisciense",s:"Guillermo, Rodrigo, Oswaldo",g:"son"},
+  {n:"Toro Viejo",o:"Tradicional",s:"Oswaldo",g:"son"},
+  {n:"Veracruz",o:"Agustín Lara",s:"Ángel, Guillermo, Gabriel",g:"son"},
+  {n:"El Carretero",o:"Guajiro Mirabal",s:"Ángel, Oswaldo",g:"son"},
+  {n:"La Culebra",o:"Bulmaro Bermúdez",s:"Instrumental",g:"son"},
+  {n:"La Charreada",o:"Tradicional",s:"Carolina",g:"son"},
+  {n:"Rezaré",o:"Tradicional",s:"Brenda",g:"son"},
   // === VALS ===
-  {n:"Morir de Amor",s:"Instrumental",g:"vals"},
-  {n:"Morir por tu Amor",s:"Instrumental",g:"vals"},
-  {n:"Balada para Adelina",s:"Instrumental",g:"vals"},
-  {n:"Dios Nunca Muere",s:"Instrumental",g:"vals"},
+  {n:"Morir de Amor",o:"Tradicional",s:"Instrumental",g:"vals"},
+  {n:"Morir por tu Amor",o:"Tradicional",s:"Instrumental",g:"vals"},
+  {n:"Balada para Adelina",o:"Paul de Senneville",s:"Instrumental",g:"vals"},
+  {n:"Dios Nunca Muere",o:"Macedonio Alcalá",s:"Instrumental",g:"vals"},
   // === ARPA ===
-  {n:"Moliendo Café",s:"Oswaldo",g:"arpa"},
-  {n:"Piano",s:"Instrumental",g:"arpa"},
+  {n:"Moliendo Café",o:"Hugo Blanco",s:"Oswaldo",g:"arpa"},
+  {n:"Piano (El Piano)",o:"Tradicional",s:"Instrumental",g:"arpa"},
   // === CUMBIA ===
-  {n:"Flor Pálida",s:"Gabriel, Carolina, Oswaldo",g:"cumbia"},
-  {n:"Nunca es Suficiente",s:"Brenda",g:"cumbia"},
-  {n:"El Ladronsuelo",s:"Brenda",g:"cumbia"},
-  {n:"Sergio el Bailador",s:"Oswaldo, Ángel",g:"cumbia"},
-  {n:"La Bala",s:"Ángel",g:"cumbia"},
-  {n:"La Boda del Huitlacoche",s:"Carolina, Gabriel",g:"cumbia"},
-  {n:"El Macho Panzón",s:"Brenda",g:"cumbia"},
-  // === POP / OTRO ===
-  {n:"De Mí Enamórate",s:"Carolina",g:"pop"},
-  {n:"Antes de Ti",s:"Carolina",g:"pop"},
-  {n:"Maracas",s:"Fernando",g:"pop"},
-  {n:"La Bikina",s:"Oswaldo",g:"pop"},
-  {n:"Cielo Rojo",s:"Gabriel",g:"pop"},
-  {n:"Milagro de tus Ojos",s:"Carolina, Gabriel, Oswaldo",g:"pop"},
-  {n:"Tu Sangre en mi Cuerpo",s:"Carolina, Ángel",g:"pop"},
-  {n:"El Mariachi Loco",s:"Oswaldo",g:"pop"},
-  {n:"Las Mañanitas",s:"Instrumental",g:"pop"},
-  {n:"Mi Mayor Anhelo",s:"Oswaldo, Fernando, Rodrigo",g:"pop"},
+  {n:"Flor Pálida",o:"Marco Antonio Solís",s:"Gabriel, Carolina, Oswaldo",g:"cumbia"},
+  {n:"Nunca es Suficiente",o:"Natalia Lafourcade",s:"Brenda",g:"cumbia"},
+  {n:"El Ladronsuelo",o:"Tradicional",s:"Brenda",g:"cumbia"},
+  {n:"Sergio el Bailador",o:"Lisandro Meza",s:"Oswaldo, Ángel",g:"cumbia"},
+  {n:"La Bala",o:"Tradicional",s:"Ángel",g:"cumbia"},
+  {n:"La Boda del Huitlacoche",o:"Tradicional",s:"Carolina, Gabriel",g:"cumbia"},
+  {n:"El Macho Panzón",o:"Tradicional",s:"Brenda",g:"cumbia"},
+  // === POP ===
+  {n:"De Mí Enamórate",o:"Daniela Romo",s:"Carolina",g:"pop"},
+  {n:"Antes de Ti",o:"Tradicional",s:"Carolina",g:"pop"},
+  {n:"Maracas",o:"Tropical Panamá",s:"Fernando",g:"pop"},
+  {n:"La Bikina",o:"Rubén Fuentes",s:"Oswaldo",g:"pop"},
+  {n:"Cielo Rojo",o:"José Alfredo Jiménez",s:"Gabriel",g:"pop"},
+  {n:"Milagro de tus Ojos",o:"Mariachi Jalisco",s:"Carolina, Gabriel, Oswaldo",g:"pop"},
+  {n:"Tu Sangre en mi Cuerpo",o:"Banda MS",s:"Carolina, Ángel",g:"pop"},
+  {n:"El Mariachi Loco",o:"Tradicional",s:"Oswaldo",g:"pop"},
+  {n:"Las Mañanitas",o:"Tradicional / M. M. Ponce",s:"Instrumental",g:"pop"},
+  {n:"Mi Mayor Anhelo",o:"Tradicional",s:"Oswaldo, Fernando, Rodrigo",g:"pop"},
+  // === ARREGLOS ÚNICOS ===
+  {n:"Trompetas de Oro",o:"Arreglo exclusivo Pilares",s:"Instrumental",g:"arreglo"},
+  {n:"Las Trompetas del Diablo",o:"Arreglo exclusivo Pilares",s:"Instrumental",g:"arreglo"},
+  {n:"El Expres de los Azahares",o:"Arreglo exclusivo Pilares",s:"Instrumental",g:"arreglo"},
+  {n:"El Garabato",o:"Arreglo exclusivo Pilares",s:"Instrumental",g:"arreglo"},
 ];
 
-const genreLabel={ranchera:"Ranchera",bolero:"Bolero",son:"Son",cumbia:"Cumbia",vals:"Vals",arpa:"Arpa",pop:"Pop"};
-const genreClass={ranchera:"t-ranchera",bolero:"t-bolero",son:"t-son",cumbia:"t-cumbia",vals:"t-vals",arpa:"t-arpa",pop:"t-pop"};
-const filters=["Todas","Ranchera","Bolero","Son","Cumbia","Vals","Arpa","Pop"];
+const genreLabel={ranchera:"Ranchera",bolero:"Bolero",son:"Son",cumbia:"Cumbia",vals:"Vals",arpa:"Arpa",pop:"Pop",arreglo:"Arreglo Único"};
+const genreClass={ranchera:"t-ranchera",bolero:"t-bolero",son:"t-son",cumbia:"t-cumbia",vals:"t-vals",arpa:"t-arpa",pop:"t-pop",arreglo:"t-arreglo"};
+const filters=["Todas","Ranchera","Bolero","Son","Cumbia","Vals","Arpa","Pop","Arreglos Únicos"];
 let active="Todas";
 
 function init(){
@@ -244,8 +260,9 @@ function init(){
 function render(){
   const q=document.getElementById("q").value.toLowerCase().trim();
   const filtered=songs.filter(s=>{
-    const gMatch=active==="Todas"||s.g===active.toLowerCase();
-    const qMatch=!q||s.n.toLowerCase().includes(q)||s.s.toLowerCase().includes(q);
+    const key=active==="Todas"?"todas":active==="Arreglos Únicos"?"arreglo":active.toLowerCase();
+    const gMatch=key==="todas"||s.g===key;
+    const qMatch=!q||s.n.toLowerCase().includes(q)||s.o.toLowerCase().includes(q)||s.s.toLowerCase().includes(q);
     return gMatch&&qMatch;
   });
   const list=document.getElementById("list");
@@ -255,7 +272,8 @@ function render(){
       <div class="num">${i+1}</div>
       <div class="info">
         <div class="name">${s.n}</div>
-        <div class="singer">${s.s}</div>
+        <div class="original">♪ ${s.o}</div>
+        <div class="singer"><span>🎺 ${s.s}</span></div>
       </div>
       <div class="tag ${genreClass[s.g]||'t-otro'}">${genreLabel[s.g]||s.g}</div>
     </div>`).join("");
@@ -263,9 +281,8 @@ function render(){
 
 init();
 
-// PWA Service Worker
 if('serviceWorker' in navigator){
-  const sw=`const CACHE='mpj-v1';const URLS=[location.href];self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(URLS))));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).then(res=>{const clone=res.clone();caches.open(CACHE).then(c=>c.put(e.request,clone));return res;}))));`;
+  const sw=`const CACHE='mpj-v2';const URLS=[location.href];self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(URLS))));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).then(res=>{const clone=res.clone();caches.open(CACHE).then(c=>c.put(e.request,clone));return res;}))));`;
   const blob=new Blob([sw],{type:'application/javascript'});
   navigator.serviceWorker.register(URL.createObjectURL(blob));
 }
